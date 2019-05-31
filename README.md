@@ -19,6 +19,7 @@ All the source for the solution can be found under:
 [src/test](https://github.com/msalter1/crypto/tree/master/src/test/java/msalter/crypto) - Junit tests  
 [sql](https://github.com/msalter1/crypto/tree/master/sql) - DB DDL scripts  
 [bin](https://github.com/msalter1/crypto/tree/master/bin) - fully executable jars (including all dependencies)  
+[doc](https://github.com/msalter1/crypto/tree/master/doc) - Javadocs  
 
 ### Prerequisites
 
