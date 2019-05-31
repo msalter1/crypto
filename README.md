@@ -15,7 +15,7 @@ The solution uses Postgresql as the DB, Vertx for the development of the async s
 
 All the source for the solution can be found under:
 
-     src/main - the source  
+     [a relative link](src/main) src/main - the source  
      src/test - Junit tests  
      sql - DB DDL scripts  
      bin - fully executable jars (including all dependencies)  
