@@ -58,7 +58,7 @@ python exchange.py
 
 ### Start the Crypto services  
 
-Either run the App from eclipse, or run the Jar directly:  
+Either run 'App' from eclipse, or run the Jar directly:  
 
 ```
 java -jar CryptoAppFull.jar
@@ -68,7 +68,7 @@ java -jar CryptoAppFull.jar
 
 createAccount(name, usd_balance):  
 ```
-curl -v -X POST --data "name=Crypto Fund ZZ&usd_balance=50000" http://127.0.0.1:8081/account
+curl -v -X POST --data "name=Crypto Fund AG&usd_balance=50000" http://127.0.0.1:8081/account
 ```
 
 fetchAccountDetails(account_id):
@@ -85,10 +85,20 @@ fetchOrderDetails(order_id):
 ```
 curl -v -X GET http://127.0.0.1:8081/orderdetails/1
 ```
+## Executing a limit order
+
+Either run 'ExecuteLimitOrders' from eclipse, or run the Jar directly:  
+
+```
+java -jar ExecuteLimitOrdersFull.jar
+```
+Successfully processed limit orders will have their status set to 'processed' in the client_order table
 
 ## Running the Junit tests
 
-The JUnit 4 tests are incomplete - there is currently just one test to illustrate how async services can be tested. From Eclipse just run the Maven 'test' goal, or use the mvn command line.
+The JUnit 4 tests are incomplete - there is currently just one test to illustrate how async services can be tested and this is currently disabled because there was insufficient time to write the setup and teardown code. 
+
+From Eclipse just run the Maven 'test' goal, or use the mvn command line.
 
 
 ## Built With
