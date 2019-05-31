@@ -16,9 +16,9 @@ The solution uses Postgresql as the DB, Vertx for the development of the async s
 All the source for the solution can be found under:
 
 [src/main](https://github.com/msalter1/crypto/tree/master/src/main/java/msalter/crypto) src/main - the source  
-     src/test - Junit tests  
-     sql - DB DDL scripts  
-     bin - fully executable jars (including all dependencies)  
+[src/test](https://github.com/msalter1/crypto/tree/master/src/test/java/msalter/crypto) - Junit tests  
+[sql](https://github.com/msalter1/crypto/tree/master/sql) - DB DDL scripts  
+[bin](https://github.com/msalter1/crypto/tree/master/bin) - fully executable jars (including all dependencies)  
 
 ### Prerequisites
 
