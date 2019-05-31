@@ -38,8 +38,7 @@ CREATE_DB.sql
 CREATE_DB_Objects.sql
 ```
 
-## Running
-
+## Running the services
 
 ### Delete old test data
 
