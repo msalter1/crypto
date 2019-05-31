@@ -32,7 +32,7 @@ public class OrderService extends BaseVerticle {
 	 */
 	private void createLimitOrder(RoutingContext routingContext) {
 
-        System.out.println( "OrderService - createLimitOrder" );
+        System.out.println( "OrderService - createLimitOrder called..." );
 
         // get params
 		final long account_id = new Long(routingContext.request().getParam("account_id"));
@@ -67,7 +67,7 @@ public class OrderService extends BaseVerticle {
 	 */
 	private void fetchOrderDetails(RoutingContext routingContext) {			
 		
-        System.out.println( "OrderService - fetchOrderDetails" );
+        System.out.println( "OrderService - fetchOrderDetails called..." );
 
         // get params
 		final long order_id = new Long(routingContext.request().getParam("order_id"));

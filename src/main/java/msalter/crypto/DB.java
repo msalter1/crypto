@@ -1,5 +1,11 @@
 package msalter.crypto;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
+
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
@@ -23,13 +29,40 @@ public class DB {
 	 * @param vertx     the Vertx object
      * @param handler   handler to process the async result
 	 */
+	
+	
 	public static void getConnection(Vertx vertx, Handler<AsyncResult<SQLConnection>> handler) {
+		
+		File configFile = new File("config.properties");
+		 
+		String host="";
+		int port=0;
+		String username="";
+		String password="";
+
+		try {
+		    FileReader reader = new FileReader(configFile);
+		    Properties props = new Properties();
+		    props.load(reader);		 
+
+		    host = props.getProperty("host");
+		    port = Integer.parseInt(props.getProperty("port"));
+		    username = props.getProperty("username");
+		    password = props.getProperty("password");
+		 
+		    System.out.print("Host name is: " + host);
+		    reader.close();
+		} catch (FileNotFoundException ex) {
+		    // file does not exist
+		} catch (IOException ex) {
+		    // I/O error
+		}	
 
 		JsonObject postgreSQLClientConfig = new JsonObject()
-				.put("host", "localhost")
-				.put("port", 5432)
-				.put("username", "postgres")
-				.put("password", "Portree123")
+				.put("host", host)
+				.put("port", port)
+				.put("username", username)
+				.put("password", password)
 				.put("database", "crypto");
 
 		SQLClient postgreSQLClient = PostgreSQLClient.createShared(vertx, postgreSQLClientConfig);     

@@ -32,7 +32,7 @@ public class AccountService extends BaseVerticle {
 	 */
 	private void createAccount(RoutingContext routingContext) {
 
-        System.out.println( "AccountService - createAccount" );
+        System.out.println( "AccountService - createAccount called..." );
 
         // get params
 		final String name = routingContext.request().getParam("name");
@@ -67,7 +67,7 @@ public class AccountService extends BaseVerticle {
 	 */
 	private void fetchAccountDetails(RoutingContext routingContext) {			
 		
-        System.out.println( "AccountService - fetchAccountDetails" );
+        System.out.println( "AccountService - fetchAccountDetails called..." );
 
         // get params
 		final long account_id = new Long(routingContext.request().getParam("account_id"));

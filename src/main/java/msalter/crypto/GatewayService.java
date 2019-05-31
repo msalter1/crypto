@@ -4,6 +4,7 @@ import java.util.Arrays;
 import io.vertx.core.Future;
 import io.vertx.core.http.HttpClient;
 import io.vertx.core.http.HttpClientRequest;
+import io.vertx.core.http.HttpMethod;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
@@ -27,7 +28,7 @@ public class GatewayService extends BaseVerticle {
 	 */
 	private void routeRequest(RoutingContext context) {
 
-		System.out.println( "GatewayService");
+		System.out.println( "GatewayService called...");
 
 		// get request path
 		String path = context.request().uri();
@@ -35,13 +36,13 @@ public class GatewayService extends BaseVerticle {
 		int port = 0;
 
 		// get the port - crude - we obviously need a better service discovery process...!
-		if(Arrays.stream(new String[]{"/account/","/accountdetails/"}).parallel().anyMatch(path::contains)) {
+		if(Arrays.stream(new String[]{"/account","/accountdetails/"}).parallel().anyMatch(path::contains)) {
 			port = 8082;
 		}
-		else if (Arrays.stream(new String[]{"/limitorder/","/orderdetails/"}).parallel().anyMatch(path::contains)) {
+		else if (Arrays.stream(new String[]{"/limitorder","/orderdetails/"}).parallel().anyMatch(path::contains)) {
 			port = 8083;			
 		}		
-	
+
 		HttpClient client = vertx.createHttpClient();
 
 		dispatch(context, port, path, client); 
@@ -63,7 +64,8 @@ public class GatewayService extends BaseVerticle {
 
 		HttpClientRequest toReq = client
 				.request(context.request().method(), port, "127.0.0.1", path,   response -> { 
-					response.bodyHandler(body -> {
+						response.bodyHandler(body -> {
+
 						if (response.statusCode() >= 500) { 
 							//???
 						} else {
@@ -82,6 +84,9 @@ public class GatewayService extends BaseVerticle {
 		context.request().headers().forEach(header -> { 
 			toReq.putHeader(header.getKey(), header.getValue());
 		});
+		if (context.user() != null) {
+			    toReq.putHeader("user-principal", context.user().principal().encode());
+		}
 		// send request
 		if (context.getBody() == null) {
 			toReq.end();
