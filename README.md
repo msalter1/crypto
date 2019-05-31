@@ -25,11 +25,12 @@ Following is required:
 
 Database configuration:
 
-     host : "localhost"  
-     port : 5432  
-     username : "postgres"  
-     password : "Portree123"  
-     database ; "crypto"  
+A DB user 'postgres' must already exist. The DB configuration is in the app's config.properties' file - 
+
+     host=localhost  
+     port=5432  
+     username=postgres  
+     password=Portree123   
 
 Execute following scripts:
 
@@ -37,6 +38,7 @@ Execute following scripts:
 CREATE_DB.sql
 CREATE_DB_Objects.sql
 ```
+This will create a database called 'crypto' with owner 'postgres'
 
 ## Running the services
 
@@ -106,6 +108,3 @@ From Eclipse just run the Maven 'test' goal, or use the mvn command line.
 * [Vertx](https://vertx.io/) - The web framework used
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [Postgresql](https://www.postgresql.org/) - Database
-
-
-
