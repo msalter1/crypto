@@ -1,6 +1,6 @@
 # Crypto Challenge
 
-Solution to the Crypto Challenge. The challenge as to implement the following endpoints:
+Solution to the Crypto Challenge. The challenge was to implement the following endpoints:
 
 * createAccount(name, usd_balance): Creates an account on the application with 0 BTC.
 * fetchAccountDetails(account_id): Fetches account details.
@@ -13,7 +13,7 @@ The solution uses Postgresql as the DB, Vertx for the development of the async s
 
 ## Getting Started
 
-All the source for the solution can be found under src/main, src/test (Jnit tests) and sql (DB DDL scripts). The build is driven by 
+All the source for the solution can be found under src/main, src/test (Jnit tests) and sql (DB DDL scripts) 
 
 ### Prerequisites
 
@@ -23,19 +23,19 @@ Following is required:
 
 ### Installing
 
-Database
+Database configuration:
 
-host : "localhost"  
-port : 5432  
-username : "postgres"  
-password : "Portree123"  
-database ; "crypto"  
+   host : "localhost"  
+   port : 5432  
+   username : "postgres"  
+   password : "Portree123"  
+   database ; "crypto"  
 
 Execute following scripts:
 
 ```
-* CREATE_DB.sql
-* CREATE_DB_Objects.sql
+CREATE_DB.sql
+CREATE_DB_Objects.sql
 ```
 
 ## Running
@@ -97,4 +97,6 @@ The JUnit 4 tests are incomplete - there is currently just one test to illustrat
 * [Vertx](https://vertx.io/) - The web framework used
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [Postgresql](https://www.postgresql.org/) - Database
+
+
 
