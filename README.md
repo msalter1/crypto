@@ -25,11 +25,11 @@ Following is required:
 
 Database configuration:
 
-   host : "localhost"  
-   port : 5432  
-   username : "postgres"  
-   password : "Portree123"  
-   database ; "crypto"  
+     host : "localhost"  
+     port : 5432  
+     username : "postgres"  
+     password : "Portree123"  
+     database ; "crypto"  
 
 Execute following scripts:
 
