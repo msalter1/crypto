@@ -13,7 +13,12 @@ The solution uses Postgresql as the DB, Vertx for the development of the async s
 
 ## Getting Started
 
-All the source for the solution can be found under src/main, src/test (Jnit tests) and sql (DB DDL scripts) 
+All the source for the solution can be found under:
+
+     src/main - the source  
+     src/test - Junit tests  
+     sql - DB DDL scripts  
+     bin - fully executable jars (including all dependencies)  
 
 ### Prerequisites
 
@@ -60,11 +65,12 @@ python exchange.py
 
 ### Start the Crypto services  
 
-Either run 'App' from eclipse, or run the Jar directly:  
+Either run 'App' from eclipse, or run the CryptoAppFull.jar directly:  
 
 ```
 java -jar CryptoAppFull.jar
 ```
+Note : the config.properties file must be in the same folder as the jar
 
 ### Test the services
 
@@ -89,7 +95,7 @@ curl -v -X GET http://127.0.0.1:8081/orderdetails/1
 ```
 ## Executing a limit order
 
-Either run 'ExecuteLimitOrders' from eclipse, or run the Jar directly:  
+Either run 'ExecuteLimitOrders' from eclipse, or run the ExecuteLimitOrdersFull.jar directly:  
 
 ```
 java -jar ExecuteLimitOrdersFull.jar
