@@ -2,6 +2,7 @@ package msalter.crypto;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
+import io.vertx.core.http.HttpMethod;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 
@@ -23,10 +24,17 @@ public class BaseVerticle extends AbstractVerticle {
 	public void setResponse(RoutingContext routingContext, Result result) {
 
 		if (!result.isOk()) {
-			// TODO : correctly set all status codes...
+			// TODO : correctly set all http failure status codes based on result...
 			routingContext.response().setStatusCode(400).end();
 		} else {
-
+			if(routingContext.request().method() == HttpMethod.POST) {
+				// create ok
+				routingContext.response().setStatusCode(201).end();			
+			}
+			else {
+				// ok
+				routingContext.response().setStatusCode(200).end();				
+			}			
 			routingContext.response()
 					            .putHeader("content-type", "application/json; charset=utf-8")
 					            .end(result.toJson().encodePrettily());
